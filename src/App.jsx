@@ -1,11 +1,12 @@
 import { useState } from "react";
-import InputBox from './components/InputBox'
+import InputBox from "./components/InputBox";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
+import "./App.css";
 
 function App() {
   const [amount, setAmount] = useState(0);
-  const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("inr");
+  const [from, setFrom] = useState("inr");
+  const [to, setTo] = useState("usd");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
   const currencyInfo = useCurrencyInfo(from);
@@ -25,12 +26,13 @@ function App() {
 
   return (
     <div
-      className="w-full h-screen flex flex-wrap justify-center items-center  lg:bg-cover bg-no-repeat   "
+      className="w-full h-screen flex flex-wrap justify-center items-center  lg:bg-cover bg-no-repeat  "
       style={{
-        backgroundImage: `url('https://www.thomascook.in/blog/wp-content/uploads/2023/04/inr-vs-world-1.jpg')`,
-      }}>
+        backgroundImage: `url('https://www.worldatlas.com/r/w1300/upload/4c/1e/8e/shutterstock-585541982.jpg') `,
+      }}
+    >
       <div className="w-full">
-        <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+        <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-md bg-white/30">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -62,7 +64,7 @@ function App() {
                 amount={convertedAmount}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setTo(currency)}
-                selectCurrency={from}
+                selectCurrency={to}
                 amountDisable
               />
             </div>
